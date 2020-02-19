@@ -1,0 +1,29 @@
+##-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#! Bibliografia
+
+#! Livros Recomendados:
+MENEZES, NILO NEY COUTINHO. INTRODUÇÃO À PROGRAMAÇÃO COM PYTHON: ALGORITMOS E LÓGICA DE PROGRAMAÇÃO PARA INICIANTES. 1. ED. SÃO PAULO: NOVATEC, 2010.
+ localização na biblioteca: 1 andar  Prateleira 19
+ codigo: 005.133 M543 PYTH
+
+ MANZANO, JOSÉ AUGUSTO N. G.; OLIVEIRA, JAYR FIGUEIREDO DE. ALGORITMOS: LÓGICA PARA DESENVOLVIMENTO DE PROGRAMAÇÃO DE COMPUTADORES. 24. ED., REV. SÃO PAULO: ÉRICA, 2010.
+ localização na biblioteca: somente online
+
+ FORBELLONE, ANDRÉ LUIZ VILLAR; EBERSPÄCHER, HENRI FREDERICO. LÓGICA DE PROGRAMAÇÃO: A CONSTRUÇÃO DE ALGORITMOS E ESTRUTURAS DE DADOS. 3. ED. SÃO PAULO: PEARSON PRENTICE HALL, 2005.
+ localização na biblioteca: 1 andar Prateleira 18 Lado Direito
+ codigo: 005.1 F692L 2005
+
+##-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#! livros complementares
+
+ MANZANO, JOSÉ AUGUSTO N. G. ALGORITMOS LÓGICA PARA DESENVOLVIMENTO DE PROGRAMAÇÃO DE COMPUTADORES,2016.
+ localização na biblioteca: 1 andar Prateleira 18 lado Direito
+ codigo: 005.1 M296al 2010
+
+
+TUCKER, ALLEN. LINGUAGENS DE PROGRAMAÇÃO PRINCÍPIOS E PARADIGMAS. 2. PORTO ALEGRE AMGH 2014,
+localização na biblioteca: somente online
+coldigo:
+
+##-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
