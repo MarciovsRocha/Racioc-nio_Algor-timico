@@ -1,0 +1,1 @@
+A diferença entre variável e constante é que são valores imutáveis e variáveis são amostras capazes de manifestar diferenças em valor assumindo valores numéricos ou caracteres
