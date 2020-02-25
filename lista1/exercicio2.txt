@@ -1,0 +1,5 @@
+inteiro (int)
+ponto flutuante (float)
+booleano (bool)
+complexo (complex)
+Strings (texto)
