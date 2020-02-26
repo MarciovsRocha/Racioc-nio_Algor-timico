@@ -1,21 +1,18 @@
-# **Este repositório contém os algoritimos de listas de exercícios passados/realizados em sala de aula e em casa,**
-# **escritos/desenvolvidos tomando como visão o treino de boas práticas de programação e auxílio para estudo**
+### *Este repositório contém os algoritimos de listas de exercícios passados/realizados em sala de aula e em casa, escritos/desenvolvidos tomando como visão o treino de boas práticas de programação e auxílio para estudo*
 
-//======================================================================================================================
+---
 
-#  *Arquivo com anotações sobre a aula*
-//======================================================================================================================
+###  *Arquivo com anotações sobre a aula*
+
 ## sitema de avaliação
-2 provas escritas
-    - Questões Práticas
+#### 2 provas escritas
+    1. Questões Práticas
     
-3 trabalhos de implementação
-    - Lista de exercícios
-    - sistema bancário
-    - Alocação de memória
-
-//======================================================================================================================
-
+#### 3 trabalhos de implementação
+    1. Lista de exercícios
+    2. sistema bancário
+    3. Alocação de memória
+---
 ## datas
 01/04 prova 01
 08/04 trabalho 01
@@ -24,9 +21,9 @@
 03/06 prova 02
 10/06 trabalho 03
 
-//======================================================================================================================
+---
 
-Etapas: 
+Etapas para desenvolvimento de um algoritmo: 
  Entrada: Obter dados necessários
  Processamento: Processar os dados colhidos
  Saída: apresentar o resultado para um usuário
