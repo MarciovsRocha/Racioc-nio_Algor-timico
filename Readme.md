@@ -13,13 +13,13 @@
     2. sistema bancário
     3. Alocação de memória
 ---
-## datas
-01/04 prova 01
-08/04 trabalho 01
+## Datas
+    * 01/04 prova 01
+    * 08/04 trabalho 01
 
-13/05 trabalho 02
-03/06 prova 02
-10/06 trabalho 03
+    * 13/05 trabalho 02
+    * 03/06 prova 02
+    * 10/06 trabalho 03
 
 ---
 
