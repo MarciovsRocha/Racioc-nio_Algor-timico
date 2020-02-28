@@ -9,7 +9,7 @@ while True :
   def calcularMedia():
     while i <= len(nota):
       soma = soma + nota[i]
-      i++
+      i += 1
       
 
   # condicional para verificar se o usuário quer adicionar outra nota
