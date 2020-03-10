@@ -9,3 +9,11 @@
 3. Marcio Rocha
 
 ----
+
+## *Precedência entre operadores:*
+
+### *Prioridade entre operadores lógicos:*
+
+1. !
+2. && ||
+3. !||
