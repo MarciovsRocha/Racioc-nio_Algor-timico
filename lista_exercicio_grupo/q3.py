@@ -1,5 +1,5 @@
-def adicao(a,b: float):
-    if(type(a) != float) or type(b) != float:
+def adicao(a,b: int):
+    if(type(a) != int) or type(b) != int:
         print("Valor inserido incorreto")
     else:
         s = a+b
@@ -9,6 +9,6 @@ def adicao(a,b: float):
             s = s - 5.0
     return s
 
-a = float(input("Digite o valor do primeiro numero: "))
-b = float(input("Digite o valor do segundo numero: "))
+a = int(input("Digite o valor do primeiro numero: "))
+b = int(input("Digite o valor do segundo numero: "))
 print(f"Resultado: {adicao(a,b)}")
