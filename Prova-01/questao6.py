@@ -1,0 +1,6 @@
+print("Digite a abaixo a sua idade detalhada, para ser calculada em dias")
+idadeAnos = int(input("Digite quantos anos: "))
+idadeMeses = int(input("Digite quantos Meses: "))
+idadeDias = int(input("Digita quantos dias: "))
+totalDias = ( idadeDias + (idadeMeses * 30) + (idadeAnos * 365) )
+print(totalDias)

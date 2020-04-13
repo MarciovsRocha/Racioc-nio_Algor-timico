@@ -1,26 +1,37 @@
-lista = []
-def comparaNumeros(n1,n2,n3: int):
-    if (n1 < n2):
-        if (n2 < n3) and (n1 < n3):
-            lista.append(n1)
-            lista.append(n2)
-            lista.append(n3)
+Lista =[]
+def ComparaNumero (A,B,C: int):
+    if (A<B):
+        if (B<C) and (A<C):
+            Lista.append(A)
+            Lista.append(B)
+            Lista.append(C)
         else:
-            lista.append(n1)
-            lista.append(n3)
-            lista.append(n2)
+            Lista.append(A)
+            Lista.append(C)
+            Lista.append(B)
+    elif (B<C):
+        if(C<A)and(B<A):
+            Lista.append(B)
+            Lista.append(C)
+            Lista.append(A)
+        else:
+            Lista.append(B)
+            Lista.append(A)
+            Lista.append(C)
     else:
-        if (n1 < n3) and (n2 < n3):
-            lista.append(n2)
-            lista.append(n1)
-            lista.append(n3)
+        if(C<B)and(B<A):
+            Lista.append(C)
+            Lista.append(B)
+            Lista.append(A)
         else:
-            lista.append(n3)
-            lista.append(n2)
-            lista.append(n1)
+            Lista.append(C)
+            Lista.append(A)
+            Lista.append(B)
 
-num1 = int(input("Digite o primeiro numero: "))
-num2 = int(input("Digite o segundo numero: "))
-num3 = int(input("Digite o terceiro numero: "))
-comparaNumeros(num1,num2,num3)
-print(lista)
+
+A=int(input("Digite o Primeiro Digito: "))
+B=int(input("Digite o Segundo Digito: "))
+C=int(input("Digite o Terceiro Digito: "))
+
+ComparaNumero(A,B,C)
+print(Lista)
