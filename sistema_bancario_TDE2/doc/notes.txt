@@ -1,0 +1,8 @@
+- O número da conta deve ser gerado de forma automática para que nunca exista duas contas com o mesmo código, para fazermos isso irei pegar o ultimo numero de conta salvo no JSON e adicionar 1
+- O Login independente se for gerente ou usuário deve ser a partir do numero da conta, vc digita sua conta e sua senha e depois o sistema verifica se existe e não durante o login
+	1- entrada de dados
+	2- alocação em variáveis
+	3- validação de caracteres
+	4- validação de conta
+	5- ação a ser tomada
+- Não precisamos de vários arquivos JSON, podemos colocar tudo em um arquivo somente e criar um campo de nome 
