@@ -1,0 +1,17 @@
+{
+    "conta": [
+        {
+            "id": 10021,
+            "password": "abc2345H",
+            "nome": "Joao das Coves",
+            "balance": 1000.0,
+            "type": "c"
+        },
+        {
+            "id": 10022,
+            "password": "acb2345H",
+            "nome": "Joao Doria",
+            "type": "G"
+        }
+    ]
+}
