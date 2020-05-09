@@ -27,18 +27,6 @@
             "telefone": "3333-5641",
             "profissao": "arquiteto",
             "rendaMensal": 5000.0
-        },
-        {
-            "id": 10024,
-            "password": "umasenha",
-            "nome": "Joao",
-            "sobrenome": "Doria Silva Nunes",
-            "balance": 0.0,
-            "type": "c",
-            "endereco": "Rua seila Nao aguento mais",
-            "telefone": "5641-6543",
-            "profissao": "Professor",
-            "rendaMensal": 5000.56
         }
     ]
 }

@@ -5,7 +5,6 @@ import sys # verificar se a biblioteca esta sendo utilizada
 from os import system as osSys # bilbioteca utilizada para criar o metodo clear
 from gerente import * # importa as funcoes do arquivo gerente.py
 from cliente import * # importa as funcoes do arquivo cliente.py
-from time import sleep # importa a funcao sleep da biblioteca time
 # /import section
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------- 
 # var section
@@ -64,16 +63,18 @@ def selectMenu(loggedUser):
             data = loadJSONData() # carrega as informacoes e grava na variavel data
             idNovaConta = (geraIDNovo(data)) # variavel que recebe o novo ID
             # cadUser esta no arquivo gerente.py pois eh uma fincao executada somente por um gerente
+            clear()
             newuser = cadUser(idNovaConta)
+            clear()
             salva = input('Deseja Salvar as alteracoes feitas? [S]im [N]ao\n') # verifica se o gerente quer salvar as alteracoes
             if ((salva == 's') or (salva == 'S')):
                 salvaData(newuser) # chama a funcao para adicionar o novo cliente no final do documento
                 clear() # limpa o console
                 print('Novo Usuario Salvo com Sucesso!')
-                sleep(1) # espera 1 segundo antes de continuar
+                input('\n Aperte [Enter] para sair')
             elif ((salva == 'N') or (salva == 'n')): # verifica se a opcao escolhida foi de nao salvar alteracoes
                 print('Alteracoes descartadas.')
-                sleep(1) # espera 1 segundo antes de continuar
+                input('\n Aperte [Enter] para sair')
         elif (escolha == 2): # se a escolha for 2 prepara os parametros e chama as funcoes necessarias
             srcNome = input('Digite o Nome a ser buscado:\n')
             data = loadJSONData() # chama a funcao para gravar o conteudo do arquivo data.json na variavel data
@@ -82,7 +83,9 @@ def selectMenu(loggedUser):
             print(f'Resultado para a busca: {srcNome}')
             for i in range(len(result)): # metodo para listar os ID's e nomes recebidos como resultado 
                 print(f'id: {result[i]["id"]} -- nome: {result[i]["nome"]} {result[i]["sobrenome"]}\n ')
+            input('\n Aperte [Enter] para sair')
         elif(escolha == 3): # se a escolha for 2 prepara os parametros e chama as funcoes necessarias
+            clear()
             idConta = int(input('Digite o ID da Conta cuja senha sera troca: ')) # id da conta a ser trocada a senha
             senhaNova = input('Digite a senha para o cliente de 4 a 8 digitos \n caracteres aceitos: a-z, A-Z,0-9 \n Senha:') # nova senha
             data = loadJSONData() # chama a funcao para gravar o conteudo do arquivo data.json na variavel data
@@ -91,8 +94,22 @@ def selectMenu(loggedUser):
             # criar procedimento para alterar a data
             with open('./data/data.json', 'w') as outfile:
                 json.dump(newData,outfile)
+            print('Alteracoes Salvas com sucesso!')
+            input('\n Aperte [Enter] para sair')
     elif ((loggedUser['type'] == 'C') or (loggedUser['type'] == 'c')):
         escolha = Cmenu()
+        #if (escolha == 1):
+        #elif (escolha == 2):
+        #elif (escolha == 3):
+        if (escolha == 4):
+            clear()
+            qtdeMeses = int(input('Digite a quantidade de Meses de investimento: '))
+            aporteIni = float(input('Digite o valor do aporte inicial (formato ##.#): '))
+            F = simulaInvestimento(aporteIni,qtdeMeses)
+            formated = format(F, "6.2f")
+            print(f'O montante para investimento com os dados inseridos eh: {formated}')
+            input('\n pressione Enter pra sair')
+        
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 # funcao para adicionar um novo objeto 'conta' ao final do arquivo data.json

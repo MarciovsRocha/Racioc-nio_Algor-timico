@@ -30,4 +30,4 @@ def trocaSenhaConta(id, senhaNova, data):
     for i in range(0,len(data['conta'])):
         if (id == data['conta'][i]["id"]):
             data['conta'][i]['password'] = senhaNova
-            return data['conta'][i]
+            return data
