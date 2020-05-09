@@ -1,12 +1,18 @@
 import json
 import sys
+import os
 verificado = False
+
+# usuario logado
+userLoged = {}
 
 # id da conta, esta eh a PRIMARY KEY da conta, utilizada para realizar loging
 # password eh a senha utilziada para fazer autenticacao do login
 # nome do cliente, 
 # saldo da conta do cliente
 # tipo de conta C para Clientes G para Gerentes, utilizado para verificacao na hora de mostrar o menu
+
+clear = lambda: os.system('cls')
 
 # funcao para ler dados do arquivo JSON
 def loadJSONData():
@@ -26,6 +32,13 @@ def login(verificado, user, password, data):
             print(verificado)
             return data['conta'][i]
 
+def selectMenu(loggedUser):
+    if ((loggedUser['type'] == 'G') or (loggedUser['type'] == 'g')):
+        from gerente import menu as Gmenu
+        Gmenu()
+    elif ((loggedUser['type'] == 'C') or (loggedUser['type'] == 'c')):
+        from cliente import menu as Cmenu
+        Cmenu()
 
 # funcao para salvar o arquivo json
 def salvaData(data):
@@ -39,32 +52,33 @@ def forcaLogin(verificado):
     # que seja utilizado bruteforce para login
     contErros = 0 
     while (verificado != True):
+        clear()
         user = int(input('Digite seu numero de conta: '))
         password = input('Digite sua senha: ')
         data = loadJSONData()
         userLoged = login(verificado,user,password,data)
         if (userLoged == None):
             print('Numero de conta ou senha invalido, tente novamente')
+            v = input('Tentar novamente [S]im [N]ao')
             contErros += 1
+            if ((v == 'N') or (v == 'n')):
+                sys.exit(0)
             if (contErros == 3):
                 print('Limite de tentativas expirado, tente novamente mais tarde!')
                 sys.exit(0)
         else:
             verificado = True
-            return verificado
-
-verificado = forcaLogin(verificado)
+            return userLoged, verificado
 
 while True:
     if (verificado == True):
-        print('\n . : Banco G.M. : . \n')
-        print('\n escolha uma opcao: \n')
-        print('1- Verificar saldo')
+        clear()
+        selectMenu(userLoged)
     else:
         print('Deseja fazer login? [S]im [N]ao')
         v = input()
         if ((v == 'S') or (v == 's')):
-            verificado = forcaLogin(verificado)
+            userLoged, verificado = forcaLogin(verificado)
         elif ((v == 'N') or (v == 'n')):
             sys.exit(0)
 
