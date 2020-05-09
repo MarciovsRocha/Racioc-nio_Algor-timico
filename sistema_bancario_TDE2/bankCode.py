@@ -1,6 +1,8 @@
 import json
 import sys
 import os
+from gerente import *
+from cliente import * 
 verificado = False
 
 # usuario logado
@@ -28,22 +30,34 @@ def login(verificado, user, password, data):
     for i in range(0,lim):
         if ((user == data['conta'][i]['id']) and (password == data['conta'][i]['password'])):
             verificado = True
-            print(data['conta'][i])
-            print(verificado)
             return data['conta'][i]
+
+def geraIDNovo(data):
+    pos = len(data['conta'])
+    ultimoId = data['conta'][pos-1]['id']
+    idNovo = ultimoId+1
+    return idNovo
 
 def selectMenu(loggedUser):
     if ((loggedUser['type'] == 'G') or (loggedUser['type'] == 'g')):
-        from gerente import menu as Gmenu
-        Gmenu()
+        escolha = Gmenu()
+        if (escolha == 1):
+            data = loadJSONData()
+            idNovaConta = (geraIDNovo(data))
+            newuser = cadUser(idNovaConta)
+            salva = input('Deseja Salvar as alteracoes feitas? [S]im [N]ao\n')
+            if ((salva == 's') or (salva == 'S')):
+                salvaData(newuser)
     elif ((loggedUser['type'] == 'C') or (loggedUser['type'] == 'c')):
-        from cliente import menu as Cmenu
-        Cmenu()
+        escolha = Cmenu()
+
 
 # funcao para salvar o arquivo json
-def salvaData(data):
-    with open('data.json', 'w') as outfile:
-        json.dump(data, outfile)
+def salvaData(object):
+    jsonFile = json.loads(open('./data/data.json').read())
+    jsonFile['conta'].append(object)
+    with open('./data/data.json', 'w') as outfile:
+        outfile.write(json.dumps(jsonFile))
 
 # funcao para que o usuario faca login
 def forcaLogin(verificado):
