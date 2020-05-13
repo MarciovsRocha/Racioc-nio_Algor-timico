@@ -1,3 +1,5 @@
+import json
+
 def Cmenu():
     print('. : Banco G.M. : .')
     print('1- Saque')
@@ -26,3 +28,38 @@ def simulaInvestimento(P,n):
         return (F-(F*totTX))
 #calculo do montante: F = P*(1+i)**n
 
+def visualizarSaldo(userLoged):
+    if (userLoged == None):
+        return 0
+    print('. : Banco G.M. : . \n')
+    print(f'Conta Corrente: {userLoged["id"]} \n Nome: {userLoged["nome"]} {userLoged["sobrenome"]} \n Saldo: {userLoged["balance"]}')
+    input("\n Aperte [Enter] para continuar")
+
+# funcao para realziar deposito na conta
+def deposito(valor,conta):
+    with open('./data/data.json') as json_file:
+        data = json.load(json_file)
+    lim = len(data['conta']) 
+    for i in range(0,lim):
+        if (data['conta'][i]['id'] == conta):
+            saldoAntigo = data['conta'][i]['balance']
+            saldoNovo = saldoAntigo + valor
+            data['conta'][i]['balance'] = saldoNovo
+    newData = data
+    with open('./data/data.json', 'w') as outfile:
+        json.dump(newData,outfile)
+    return 1
+
+def saque(valor,conta):
+    with open('./data/data.json') as json_file:
+        data = json.load(json_file)
+    lim = len(data['conta']) 
+    for i in range(0,lim):
+        if (data['conta'][i]['id'] == conta):
+            saldoAntigo = data['conta'][i]['balance']
+            saldoNovo = saldoAntigo - valor
+            data['conta'][i]['balance'] = saldoNovo
+    newData = data
+    with open('./data/data.json', 'w') as outfile:
+        json.dump(newData,outfile)
+    return 1

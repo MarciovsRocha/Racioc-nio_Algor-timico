@@ -2,7 +2,7 @@
 # import section
 import json # biblioteca para trabalhar com formato JSON
 import sys # verificar se a biblioteca esta sendo utilizada
-from os import system as osSys # bilbioteca utilizada para criar o metodo clear
+import os # bilbioteca utilizada para criar o metodo clear
 from gerente import * # importa as funcoes do arquivo gerente.py
 from cliente import * # importa as funcoes do arquivo cliente.py
 # /import section
@@ -16,7 +16,7 @@ userLoged = {}
 # /var section
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 # metodo para limpar o console
-clear = lambda: osSys('cls') # para limpar o console basta chamar clear()
+clear = lambda: os.system('cls') # para limpar o console basta chamar clear()
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 # funcao para ler dados do arquivo JSON
@@ -98,10 +98,29 @@ def selectMenu(loggedUser):
             input('\n Aperte [Enter] para sair')
     elif ((loggedUser['type'] == 'C') or (loggedUser['type'] == 'c')):
         escolha = Cmenu()
-        #if (escolha == 1):
-        #elif (escolha == 2):
-        #elif (escolha == 3):
-        if (escolha == 4):
+        if (escolha == 1):
+            clear()
+            value = float(input('Digite o valor de Saque: '))
+            contaSai = userLoged['id']
+            if (saque(value,contaSai) == 1):
+                clear()
+                print('Saque realizado com sucesso!')
+                input('Aperte [Enter] para continuar') 
+        elif (escolha == 2):
+            clear()
+            contaRecebe = int(input('Digite o numero da conta a ser depositado: '))
+            value = float(input('Digite a Quantia a ser depositada: '))
+            if (deposito(value,contaRecebe) == 1):
+                clear()
+                print('Deposito realizado com sucesso!')
+                input('Aperte [Enter] para continuar')
+            elif (deposito(value,contaRecebe) == -1):
+                input('Houve algum erro, por favor tente novamente mais tarde \n \n Aperte [Enter] para continuar')
+        elif (escolha == 3):
+            clear()
+            if (visualizarSaldo(userLoged) == 0):
+                forcaLogin(verificado)
+        elif (escolha == 4):
             clear()
             qtdeMeses = int(input('Digite a quantidade de Meses de investimento: '))
             aporteIni = float(input('Digite o valor do aporte inicial (formato ##.#): '))
@@ -110,7 +129,6 @@ def selectMenu(loggedUser):
             print(f'O montante para investimento com os dados inseridos eh: {formated}')
             input('\n pressione Enter pra sair')
         
-
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 # funcao para adicionar um novo objeto 'conta' ao final do arquivo data.json
 def salvaData(object):
@@ -118,6 +136,7 @@ def salvaData(object):
     jsonFile['conta'].append(object)
     with open('./data/data.json', 'w') as outfile:
         outfile.write(json.dumps(jsonFile))
+        
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 # funcao para que o usuario faca login
 def forcaLogin(verificado):
@@ -143,6 +162,7 @@ def forcaLogin(verificado):
         else:
             verificado = True
             return userLoged, verificado
+
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 while True:
     if (verificado == True):
@@ -156,4 +176,3 @@ while True:
             userLoged, verificado = forcaLogin(verificado)
         elif ((v == 'N') or (v == 'n')):
             sys.exit(0)
-
