@@ -104,6 +104,8 @@ def selectMenu(loggedUser):
             contaSai = userLoged['id']
             if (saque(value,contaSai) == 1):
                 clear()
+                saldo = userLoged['balance']
+                userLoged['balance'] = saldo-value # atualiza o saldo na variavel global do usuario logado
                 print('Saque realizado com sucesso!')
                 input('Aperte [Enter] para continuar') 
         elif (escolha == 2):
@@ -112,6 +114,9 @@ def selectMenu(loggedUser):
             value = float(input('Digite a Quantia a ser depositada: '))
             if (deposito(value,contaRecebe) == 1):
                 clear()
+                if (contaRecebe == userLoged['id']):
+                    saldo = userLoged['balance']
+                    userLoged['balance'] = saldo+value # atualiza o saldo na variavel global do usuario logado
                 print('Deposito realizado com sucesso!')
                 input('Aperte [Enter] para continuar')
             elif (deposito(value,contaRecebe) == -1):
