@@ -163,6 +163,7 @@ def forcaLogin(verificado):
                 sys.exit(0)
             if (contErros == 3):
                 print('Limite de tentativas expirado, tente novamente mais tarde!')
+                input('Aperte qualter tecla para continuar')
                 sys.exit(0)
         else:
             verificado = True
