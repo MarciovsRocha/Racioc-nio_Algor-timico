@@ -59,6 +59,7 @@ def desalocMemory(qtde, posInit: int, memory):
             break
         for j in range(0,len(memory[i])):
             count += 1
+    print()
     
 # ---------------------------------------------------------------------------------------------------------------------------------------
 # first fit
