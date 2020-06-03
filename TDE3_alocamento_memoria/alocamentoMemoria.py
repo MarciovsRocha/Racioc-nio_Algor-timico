@@ -1,5 +1,12 @@
+# importado metodo utilizado no clear()
+from os import system
+
 # criando a matriz
 memoria = []
+
+# ---------------------------------------------------------------------------------------------------------------------------------------
+# metodo para limpar o console
+clear = lambda: system('cls')
 
 # ---------------------------------------------------------------------------------------------------------------------------------------
 # funcao para criar a 'memoria'
@@ -18,6 +25,7 @@ def createMemory(Xmem,Ymem: int):
         memAloc.append(X.copy())
         i += 1
     return memAloc
+
 # ---------------------------------------------------------------------------------------------------------------------------------------
 # funcao para printar a memoria e seus espacos alocados com X
 def showMemory(matriz):
@@ -39,6 +47,19 @@ def alocMemory(X,Y,memory):
     for i in range(0,len(X)):
         memory[X[i]][Y[i]] = True
     return memory
+
+# ---------------------------------------------------------------------------------------------------------------------------------------
+# funcao para desalocar valores na memoria
+def desalocMemory(qtde, posInit: int, memory):
+    count = 0
+    for i in range(0,len(memory)):
+        if (count == posInit):
+            x = i-1
+            y = j
+            break
+        for j in range(0,len(memory[i])):
+            count += 1
+    
 # ---------------------------------------------------------------------------------------------------------------------------------------
 # first fit
 def firstFitAloc(aloc: int, memory):
@@ -67,18 +88,24 @@ def firstFitAloc(aloc: int, memory):
 
 # ---------------------------------------------------------------------------------------------------------------------------------------
 
-
+clear()
 print('Digite o tamanho da memoria (X,Y) \n sendo X = linhas e Y = colunas') 
 qtdeLinhas = int(input('X: '))
 qtdeColunas = int(input('Y: '))
-print(f'criando uma memoria com tamanho({qtdeLinhas},{qtdeColunas})')
+print(f'\n criando uma memoria com tamanho({qtdeLinhas},{qtdeColunas})')
 memoria = createMemory(qtdeLinhas,qtdeColunas)
 showMemory(memoria)
 print()
 print()
 memoria = firstFitAloc(15,memoria)
 showMemory(memoria)
+print()
+print()
 memoria = firstFitAloc(5,memoria)
 showMemory(memoria)
+print()
+print()
 memoria = firstFitAloc(40,memoria)
 showMemory(memoria)
+print()
+print()
