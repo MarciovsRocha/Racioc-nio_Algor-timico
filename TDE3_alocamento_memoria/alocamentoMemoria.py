@@ -15,7 +15,7 @@ def createMemory(Xmem,Ymem: int):
         i += 1
     i = 0
     while i < Xmem:
-        memAloc.append(X)
+        memAloc.append(X.copy())
         i += 1
     return memAloc
 # ---------------------------------------------------------------------------------------------------------------------------------------
@@ -37,8 +37,7 @@ def alocMemory(X,Y,memory):
         print('Houve algum erro :( \n tente novamente mais tarde.')
         return -1
     for i in range(0,len(X)):
-        for j in range(0,len(Y)):
-            memory[i][j] = True
+        memory[X[i]][Y[i]] = True
     return memory
 # ---------------------------------------------------------------------------------------------------------------------------------------
 # first fit
@@ -59,9 +58,6 @@ def firstFitAloc(aloc: int, memory):
                 count += 1
                 posX.append(i)
                 posY.append(j)
-                print(posX)
-                print(posY)
-                print(count)
 
 # ---------------------------------------------------------------------------------------------------------------------------------------
 # best fit
@@ -80,5 +76,9 @@ memoria = createMemory(qtdeLinhas,qtdeColunas)
 showMemory(memoria)
 print()
 print()
-memoria = firstFitAloc(3,memoria)
+memoria = firstFitAloc(15,memoria)
+showMemory(memoria)
+memoria = firstFitAloc(5,memoria)
+showMemory(memoria)
+memoria = firstFitAloc(40,memoria)
 showMemory(memoria)
