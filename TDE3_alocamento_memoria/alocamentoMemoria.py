@@ -52,14 +52,19 @@ def alocMemory(X,Y,memory):
 # funcao para desalocar valores na memoria
 def desalocMemory(qtde, posInit: int, memory):
     count = 0
+    verPos = True
     for i in range(0,len(memory)):
-        if (count == posInit):
-            x = i-1
-            y = j
-            break
         for j in range(0,len(memory[i])):
-            count += 1
-    print()
+            if ((count == posInit) and (verPos == True) ):
+                count = 0
+                verPos = False
+            elif ((count < posInit) and (verPos == True)):
+                count += 1
+            elif ((count <= qtde) and (verPos == False)):
+                memory[i][j] = False
+                count += 1
+            elif ((count > qtde) and (verPos == False)):
+                return memory
     
 # ---------------------------------------------------------------------------------------------------------------------------------------
 # first fit
@@ -99,14 +104,10 @@ showMemory(memoria)
 print()
 print()
 memoria = firstFitAloc(15,memoria)
-showMemory(memoria)
-print()
-print()
 memoria = firstFitAloc(5,memoria)
-showMemory(memoria)
-print()
-print()
 memoria = firstFitAloc(40,memoria)
 showMemory(memoria)
 print()
 print()
+memoria = desalocMemory(4,3,memoria)
+showMemory(memoria)
