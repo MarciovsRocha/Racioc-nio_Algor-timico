@@ -1,5 +1,6 @@
 # importado metodo utilizado no clear()
 from os import system
+import time
 
 # criando a matriz
 memoria = []
@@ -88,9 +89,53 @@ def firstFitAloc(aloc: int, memory):
 
 # ---------------------------------------------------------------------------------------------------------------------------------------
 # best fit
+def bestFitAloc(aloc: int, memory):
+    count = 0
+    posX = []
+    posY = []
+    for i in range(0,len(memory)):
+        for j in range(0,len(memory[i])):
+            if (count == aloc):
+                return 0
+            elif (memory[i][j] == True):
+                count = 0
+
+            elif (memory[i][j] == False):
+                count += 1
+                posX.append(i)
+                posY.append(j)
 
 # ---------------------------------------------------------------------------------------------------------------------------------------
 # worst fit
+def WorstFit(matriz,n,teste=False):
+    inicio=time.localtime()
+    n=int(n)
+    local=[]
+    compara=[]
+    for l in range(len(matriz)):
+        for c in range(len(matriz[l])):
+            if matriz[l][c]==0:
+                compara.append([l,c])
+                if len(compara)>len(local):
+                    local=compara.copy()
+            else:
+                compara=[]
+    if len(local)>=n:
+        for i in range(n):
+            a=local[i][0]
+            b=local[i][1]
+            matriz[a][b]=1
+        if teste==True:
+            erros=0
+            sucessos=1
+            return matriz,erros,sucessos,inicio.tm_sec
+    else:
+        if teste==True:
+            erros=1
+            sucessos=0
+            return matriz,erros,sucessos,inicio.tm_sec
+    print('\n')
+    return menu(matriz)
 
 # ---------------------------------------------------------------------------------------------------------------------------------------
 
@@ -110,4 +155,7 @@ showMemory(memoria)
 print()
 print()
 memoria = desalocMemory(4,3,memoria)
+memoria = desalocMemory(1,10,memoria)
+memoria = desalocMemory(3,0,memoria)
+memoria = desalocMemory(6,30,memoria)
 showMemory(memoria)
